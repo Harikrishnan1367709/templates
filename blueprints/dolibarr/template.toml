@@ -1,0 +1,48 @@
+[variables]
+main_domain = "${domain}"
+admin_password = "${password:16}"
+db_root_password = "${password:16}"
+db_password = "${password:16}"
+db_user = "dolidbuser"
+db_name = "dolidb"
+
+[config]
+
+[[config.domains]]
+serviceName = "web"
+port = 80
+host = "${main_domain}"
+
+[config.env]
+DOLI_ADMIN_PASSWORD = "${admin_password}"
+DOLI_ADMIN_LOGIN = "admin"
+DOLI_DB_HOST = "mariadb"
+DOLI_DB_NAME = "${db_name}"
+DOLI_DB_USER = "${db_user}"
+DOLI_DB_PASSWORD = "${db_password}"
+DOLI_URL_ROOT = "http://${main_domain}"
+DOLI_CRON_KEY = "${password:32}"
+DOLI_COMPANY_NAME = "MyBigCompany"
+DOLI_INIT_DEMO = "0"
+DOLI_CRON = "0"
+WWW_USER_ID = "1000"
+WWW_GROUP_ID = "1000"
+MYSQL_ROOT_PASSWORD = "${db_root_password}"
+MYSQL_DATABASE = "${db_name}"
+MYSQL_USER = "${db_user}"
+MYSQL_PASSWORD = "${db_password}"
+
+[[config.mounts]]
+serviceName = "web"
+localPath = "/home/dolibarr_documents"
+containerPath = "/var/www/documents"
+
+[[config.mounts]]
+serviceName = "web"
+localPath = "/home/dolibarr_custom"
+containerPath = "/var/www/html/custom"
+
+[[config.mounts]]
+serviceName = "mariadb"
+localPath = "/home/dolibarr_mariadb"
+containerPath = "/var/lib/mysql"

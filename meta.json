@@ -1683,6 +1683,26 @@
     ]
   },
   {
+  "id": "dolibarr",
+  "name": "Dolibarr",
+  "version": "22.0.2",
+  "description": "Dolibarr ERP & CRM is an open-source software suite for small and medium businesses, freelancers, or foundations. It manages customers, invoices, projects, inventory, and more.",
+  "logo": "Dolibarr_logo.png",
+  "links": {
+    "github": "https://github.com/Dolibarr/dolibarr",
+    "website": "https://dolibarr.org/",
+    "docs": "https://wiki.dolibarr.org/"
+  },
+  "tags": [
+    "erp",
+    "crm",
+    "business",
+    "open-source",
+    "docker"
+  ]
+},
+
+  {
     "id": "domain-locker",
     "name": "Domain Locker",
     "version": "latest",
