@@ -1,0 +1,46 @@
+[variables]
+main_domain = "${domain}"
+db_password = "${password}"
+db_user = "easyappointments"
+mail_protocol = "mail"
+mail_smtp_debug = "0"
+mail_smtp_auth = "0"
+mail_smtp_host = "smtp.example.org"
+mail_smtp_user = ""
+mail_smtp_pass = ""
+mail_smtp_crypto = "tls"
+mail_smtp_port = "587"
+mail_from_address = "info@${domain}"
+mail_from_name = "Easy!Appointments"
+mail_reply_to_address = "info@${domain}"
+
+[config]
+mounts = []
+
+[[config.domains]]
+serviceName = "easyappointments"
+port = 80
+host = "${main_domain}"
+
+[config.env]
+BASE_URL = "https://${main_domain}/"
+DEBUG_MODE = "TRUE"
+DB_HOST = "mysql"
+DB_NAME = "easyappointments"
+DB_USERNAME = "${db_user}"
+DB_PASSWORD = "${db_password}"
+MYSQL_ROOT_PASSWORD = "${db_password}"
+MYSQL_DATABASE = "easyappointments"
+MYSQL_USER = "${db_user}"
+MYSQL_PASSWORD = "${db_password}"
+MAIL_PROTOCOL = "${mail_protocol}"
+MAIL_SMTP_DEBUG = "${mail_smtp_debug}"
+MAIL_SMTP_AUTH = "${mail_smtp_auth}"
+MAIL_SMTP_HOST = "${mail_smtp_host}"
+MAIL_SMTP_USER = "${mail_smtp_user}"
+MAIL_SMTP_PASS = "${mail_smtp_pass}"
+MAIL_SMTP_CRYPTO = "${mail_smtp_crypto}"
+MAIL_SMTP_PORT = "${mail_smtp_port}"
+MAIL_FROM_ADDRESS = "${mail_from_address}"
+MAIL_FROM_NAME = "${mail_from_name}"
+MAIL_REPLY_TO_ADDRESS = "${mail_reply_to_address}"

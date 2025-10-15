@@ -1953,6 +1953,24 @@
     ]
   },
   {
+    "id": "easyappointments",
+    "name": "Easy!Appointments",
+    "version": "latest",
+    "description": "A powerful Open Source Appointment Scheduler that can be installed on your server. Highly customizable web application that allows customers to book appointments via a sophisticated web interface.",
+    "logo": "easyappointments.png",
+    "links": {
+      "github": "https://github.com/alextselegidis/easyappointments",
+      "website": "https://easyappointments.org",
+      "docs": "https://easyappointments.org"
+    },
+    "tags": [
+      "appointments",
+      "scheduling",
+      "calendar",
+      "business"
+    ]
+  },
+  {
     "id": "excalidraw",
     "name": "Excalidraw",
     "version": "latest",

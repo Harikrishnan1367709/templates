@@ -1,0 +1,68 @@
+version: "3.9"
+
+services:
+  easyappointments:
+    image: alextselegidis/easyappointments:latest
+    restart: always
+    environment:
+      - DEBUG_MODE=${DEBUG_MODE}
+      - DB_HOST=${DB_HOST}
+      - DB_NAME=${DB_NAME}
+      - DB_USERNAME=${MYSQL_USER}
+      - DB_PASSWORD=${MYSQL_PASSWORD}
+      - BASE_URL=${BASE_URL}
+      - MAIL_PROTOCOL=${MAIL_PROTOCOL}
+      - MAIL_SMTP_DEBUG=${MAIL_SMTP_DEBUG}
+      - MAIL_SMTP_AUTH=${MAIL_SMTP_AUTH}
+      - MAIL_SMTP_HOST=${MAIL_SMTP_HOST}
+      - MAIL_SMTP_USER=${MAIL_SMTP_USER}
+      - MAIL_SMTP_PASS=${MAIL_SMTP_PASS}
+      - MAIL_SMTP_CRYPTO=${MAIL_SMTP_CRYPTO}
+      - MAIL_SMTP_PORT=${MAIL_SMTP_PORT}
+      - MAIL_FROM_ADDRESS=${MAIL_FROM_ADDRESS}
+      - MAIL_FROM_NAME=${MAIL_FROM_NAME}
+      - MAIL_REPLY_TO_ADDRESS=${MAIL_REPLY_TO_ADDRESS}
+      - APACHE_RUN_USER=www-data
+      - APACHE_RUN_GROUP=www-data
+      - PHP_DISPLAY_ERRORS=1
+      - PHP_ERROR_REPORTING=E_ALL
+    volumes:
+      - easyappointments:/var/www/html
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - dokploy-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    volumes:
+      - mysql:/var/lib/mysql
+    networks:
+      - dokploy-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p$$MYSQL_ROOT_PASSWORD"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+networks:
+  dokploy-network:
+    external: true
+
+volumes:
+  easyappointments:
+  mysql:
