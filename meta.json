@@ -4485,6 +4485,25 @@
     ]
   },
   {
+    "id": "posthog",
+    "name": "PostHog",
+    "version": "latest",
+    "description": "PostHog is an open-source product analytics platform that provides product analytics, feature flags, session replay, and more. Self-hosted alternative to Mixpanel, Amplitude, and Heap.",
+    "logo": "posthog.png",
+    "links": {
+      "github": "https://github.com/PostHog/posthog",
+      "website": "https://posthog.com/",
+      "docs": "https://posthog.com/docs/self-host"
+    },
+    "tags": [
+      "analytics",
+      "product-analytics",
+      "feature-flags",
+      "session-replay",
+      "self-hosted"
+    ]
+  },
+  {
     "id": "pocket-id",
     "name": "Pocket ID",
     "version": "v1",
