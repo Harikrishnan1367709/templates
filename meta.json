@@ -3496,6 +3496,24 @@
     ]
   },
   {
+    "id": "mastodon",
+    "name": "Mastodon",
+    "version": "v4.5.0",
+    "description": "Mastodon is a free, open-source social network server based on ActivityPub where users can follow friends and discover new ones. On Mastodon, users can publish anything they want: links, pictures, text, video. All Mastodon servers are interoperable as a federated network.",
+    "logo": "mastodon.svg",
+    "links": {
+      "github": "https://github.com/mastodon/mastodon",
+      "website": "https://joinmastodon.org/",
+      "docs": "https://docs.joinmastodon.org/"
+    },
+    "tags": [
+      "social-network",
+      "federated",
+      "activitypub",
+      "microblogging"
+    ]
+  },
+  {
     "id": "maybe",
     "name": "Maybe",
     "version": "latest",
